@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 
 # I found this theme at http://www.drbunsen.org/the-text-triumvirate/
-ZSH_THEME="lambda"
+ZSH_THEME="nanotech"
 
 # vi bindings
 bindkey -v
