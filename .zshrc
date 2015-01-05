@@ -5,7 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+
+# I found this theme at http://www.drbunsen.org/the-text-triumvirate/
+ZSH_THEME="lambda"
 
 # vi bindings
 bindkey -v
@@ -61,7 +63,7 @@ export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.fra
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+   export EDITOR='vim'
 # else
 # export EDITOR='mvim'
 # fi
@@ -81,3 +83,11 @@ export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.fra
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
+
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+
+setopt AUTO_CD
