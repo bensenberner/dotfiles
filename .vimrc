@@ -36,7 +36,6 @@ filetype plugin indent on
 " Essential remappings
 " Because when do you ever type jk outside of sarcastic texts? 
 :inoremap jk <ESC>
-" apparently this does copying and pasting, but I can't figure it out
 noremap <leader>y "*y
 noremap <leader>yy "*Y
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
