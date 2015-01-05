@@ -1,0 +1,48 @@
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+# privileged access
+#if [ $UID -ne 0 ]; then
+    #alias sudo='nocorrect sudo '
+    #alias scat='sudo cat'
+    #alias svim='sudo vim'
+    #alias root='sudo -s'
+    #alias reboot='sudo reboot'
+    #alias netcfg='sudo netcfg2'
+#fi
+# alias cp='cp -i'
+# alias mv='mv -i'
+
+alias sshfix='eval "$(ssh-agent -s)" && ssh-add'
+# courses shortcuts
+alias crs='cd ~/Documents/Spec/courses'
+
+alias runelasticsearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
+alias runpostgres="postgres -D /usr/local/var/postgres"
+alias runredis="redis-server"
+alias runrails="crs && zeus start"
+alias runzeus="crs && zeus start"
+# Linux only
+# alias startpostgres='sudo /etc/init.d/postgresql start'
+# alias startelastic='sudo service elasticsearch start'
+# alias stoppostgres='sudo /etc/init.d/postgresql stop'
+# alias stopelastic='sudo service elasticsearch stop'
+# alias startcourses='startpostgres && startelastic && startredis'
+# alias stopcourses='stoppostgres && stopelastic'
+
+# Columbia aliases
+alias clic='ssh bll2121@clic.cs.columbia.edu' 
+alias skl='cd ~/Documents/Columbia'
+alias hw='vim ~/Documents/Columbia/hw.txt'
+
+# /g/ood aliases
+alias c="clear"
+# Linux only
+alias agi='sudo apt-get install'
+alias agp='sudo apt-get purge'
+alias agu='sudo apt-get update'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
