@@ -6,6 +6,7 @@ set laststatus=2
 set number
 set backspace=indent,eol,start
 set rtp+=~/.vim/bundle/Vundle.vim
+set history=50
 
 " Set your own leader here!
 :let mapleader = ';'
@@ -40,18 +41,23 @@ noremap <leader>y "*y
 noremap <leader>yy "*Y
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
-"Vim solarized
-let g:solarized_termtrans = 1
+" Colorscheme
 set background=dark
-colorscheme solarized
+colorscheme vimbrant 
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
+" Different scheme for different time
+if (strftime("%H") >= "21" || strftime("%H") <= "06")
+    colorscheme flux 
+endif
 
-" gleaned from https://statico.github.io/vim.html
+
 :set incsearch
 :set ignorecase
 :set smartcase
 :set hlsearch
+
 :nmap <leader>q :nohlsearch<CR>
-" more from https://github.com/NullMode/vim/blob/master/.vimrc
 
 " buffer stuff
 " :nmap <C-e> :e<CR>
@@ -61,7 +67,31 @@ colorscheme solarized
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+" Enable UTF-8 to properly display directory arrows. Otherwise, uncomment this.
+"let g:NERDTreeDirArrows=0
+" A function that automatically closes NERDTree if it is the last buffer open
+function! NERDTreeQuit()
+    redir => buffersoutput
+    silent buffers
+    redir END
+    let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+    let windowfound = 0
+    for bline in split(buffersoutput, "\n")
+        let m = matchlist(bline, pattern)
+        if (len(m) > 0)
+            if (m[2] =~ '..a..')
+                let windowfound = 1
+            endif
+        endif
+    endfor
 
+    if (!windowfound)
+        quitall
+    endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
+
+" 256 colors
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
@@ -73,6 +103,7 @@ endif
 :nmap <leader>T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 :nmap <leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 :nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " wrap mode
 :set nowrap
