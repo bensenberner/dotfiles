@@ -2,6 +2,7 @@ let mapleader=';'
 set nocompatible
 set mouse=a
 set laststatus=2
+set nowrap
 set number
 set backspace=indent,eol,start
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,7 +29,11 @@ inoremap <c-g> <esc>gg=Ggg
 " For when you come up with a great keymapping in the heat of coding
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-:nmap <leader>q :nohlsearch<CR>
+nnoremap <leader>q :nohlsearch<CR>
+nnoremap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
+nnoremap <F3> :NumbersToggle<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>h :bprev<CR>
 
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -47,11 +52,6 @@ call vundle#end()
 
 syntax on
 filetype plugin indent on
-
-" buffer stuff
-" :nmap <C-e> :e<CR>
-:nmap <leader>l :bnext<CR>
-:nmap <leader>h :bprev<CR>
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -93,12 +93,6 @@ endif
 :nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-" wrap mode
-:set nowrap
-:nmap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
-
-" numbers -- note that this many slow your computer down during fast scrolling
-nnoremap <F3> :NumbersToggle<CR>
 let g:numbers_exclude = ['nerdtree']
 
 " Syntastic
@@ -127,7 +121,3 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#syntastic#enabled = 10
-
-"YCM
-"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-"let g:ycm_key_invoke_completion = '<C-Space>'
