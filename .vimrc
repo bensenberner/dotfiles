@@ -10,9 +10,13 @@ set incsearch
 set ignorecase
 set smartcase
 set hlsearch
-
-
-
+set background=dark
+colorscheme vimbrant 
+highlight ColorColumn ctermbg=7
+" Different scheme for different time
+if (strftime("%H") >= "21" || strftime("%H") <= "06")
+    colorscheme flux 
+endif
 
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
@@ -26,8 +30,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 :nmap <leader>q :nohlsearch<CR>
 
-
-
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
@@ -39,22 +41,12 @@ Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'myusuf3/numbers.vim'
-" Note that YCM has a compiled component as well!
-" Refer to https://github.com/Valloric/YouCompleteMe/ for details.
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 call vundle#end()
 
 syntax on
 filetype plugin indent on
-" Colorscheme
-set background=dark
-colorscheme vimbrant 
-highlight ColorColumn ctermbg=7
-" Different scheme for different time
-if (strftime("%H") >= "21" || strftime("%H") <= "06")
-    colorscheme flux 
-endif
 
 " buffer stuff
 " :nmap <C-e> :e<CR>
