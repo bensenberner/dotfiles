@@ -22,9 +22,10 @@ endif
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
 inoremap wq <ESC>:wq<CR>
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+"Check what these do
+"noremap <leader>y "*y
+"noremap <leader>yy "*Y
+"noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 inoremap <c-g> <esc>gg=Ggg
 " For when you come up with a great keymapping in the heat of coding
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
