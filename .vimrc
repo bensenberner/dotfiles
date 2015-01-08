@@ -12,12 +12,12 @@ set ignorecase
 set smartcase
 set hlsearch
 set background=dark
-colorscheme vimbrant 
+colorscheme flux
 highlight ColorColumn ctermbg=7
 " Different scheme for different time
-if (strftime("%H") >= "21" || strftime("%H") <= "06")
-    colorscheme flux 
-endif
+"if (strftime("%H") >= "21" || strftime("%H") <= "06")
+    "colorscheme flux 
+"endif
 
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
@@ -100,8 +100,8 @@ let g:numbers_exclude = ['nerdtree']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-"let g:syntastic_error_symbol = "✗"
-"let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_population_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
