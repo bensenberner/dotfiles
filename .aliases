@@ -35,6 +35,7 @@ alias runzeus="crs && zeus start"
 alias clic='ssh bll2121@clic.cs.columbia.edu' 
 alias skl='cd ~/Documents/Columbia'
 alias hw='vim ~/Documents/Columbia/hw.txt'
+alias localhost='cd /Library/WebServer/Documents'
 
 # /g/ood aliases
 alias c="clear"
