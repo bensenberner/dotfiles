@@ -34,6 +34,7 @@ alias runzeus="crs && zeus start"
 # Columbia aliases
 alias clic='ssh bll2121@clic.cs.columbia.edu' 
 alias skl='cd ~/Documents/Columbia'
+alias discrete='skl && COMS3203'
 alias hw='vim ~/Documents/Columbia/hw.txt'
 alias localhost='cd /Library/WebServer/Documents'
 
@@ -49,4 +50,4 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias dream="./dream.sh"
+alias dream="~/.dream.sh"

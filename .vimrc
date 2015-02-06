@@ -12,12 +12,11 @@ set ignorecase
 set smartcase
 set hlsearch
 set background=dark
-colorscheme vimbrant 
-highlight ColorColumn ctermbg=7
+"highlight ColorColumn ctermbg=7
 " Different scheme for different time
-if (strftime("%H") >= "21" || strftime("%H") <= "06")
-    colorscheme flux 
-endif
+"if (strftime("%H") >= "21" || strftime("%H") <= "06")
+    "colorscheme flux 
+"endif
 
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
@@ -50,6 +49,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
+Bundle 'gertjanreynaert/cobalt2-vim-theme'
 call vundle#end()
 
 syntax on
@@ -94,6 +94,9 @@ endif
 :nmap <leader>M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 :nmap <leader>m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 let g:numbers_exclude = ['nerdtree']
 

@@ -55,7 +55,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/benjaminlerner/anaconda/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@railstutorial_rails_4_0_1/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@global/bin:/Users/benjaminlerner/.rvm/rubies/ruby-2.1.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin"
+export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/benjaminlerner/anaconda/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@railstutorial_rails_4_0_1/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@global/bin:/Users/benjaminlerner/.rvm/rubies/ruby-2.1.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/usr/texbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
