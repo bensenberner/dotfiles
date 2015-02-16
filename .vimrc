@@ -34,13 +34,15 @@ nnoremap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
 nnoremap <F3> :NumbersToggle<CR>
 nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
+nnoremap j gj
+nnoremap k gk
 
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 " Need to figure out how to make it less intrusive first
-"Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails'
