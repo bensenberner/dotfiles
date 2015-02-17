@@ -1,18 +1,7 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-# privileged access
-#if [ $UID -ne 0 ]; then
-    #alias sudo='nocorrect sudo '
-    #alias scat='sudo cat'
-    #alias svim='sudo vim'
-    #alias root='sudo -s'
-    #alias reboot='sudo reboot'
-    #alias netcfg='sudo netcfg2'
-#fi
-# alias cp='cp -i'
-# alias mv='mv -i'
-
+alias vimrc='vim ~/.vimrc'
 alias sshfix='eval "$(ssh-agent -s)" && ssh-add'
 # courses shortcuts
 alias crs='cd ~/Documents/Spec/courses'
@@ -23,6 +12,7 @@ alias runpostgres="postgres -D /usr/local/var/postgres9.3"
 alias runredis="redis-server"
 alias runrails="crs && zeus start"
 alias runzeus="crs && zeus start"
+
 # Linux only
 # alias startpostgres='sudo /etc/init.d/postgresql start'
 # alias startelastic='sudo service elasticsearch start'
@@ -50,5 +40,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
 alias dream="~/.dream.sh"

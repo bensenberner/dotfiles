@@ -63,7 +63,7 @@ export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.fra
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+export EDITOR='vim'
 # else
 # export EDITOR='mvim'
 # fi
@@ -96,3 +96,17 @@ setopt AUTO_CD
 
 # autojump
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+# code to toggle back from a jump-to-command-line-using-ctrl-z-in-vim
+# with a ctrl-z
+fancy-ctrl-z () {
+    if [[ $#BUFFER -eq 0 ]]; then
+        BUFFER="fg"
+        zle accept-line
+    else
+        zle push-input
+        zle clear-screen
+    fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z

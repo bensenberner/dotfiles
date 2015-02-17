@@ -15,7 +15,7 @@ set background=dark
 "highlight ColorColumn ctermbg=7
 " Different scheme for different time
 "if (strftime("%H") >= "21" || strftime("%H") <= "06")
-    "colorscheme flux 
+    "make something your colorscheme
 "endif
 
 inoremap jk <ESC>
@@ -26,9 +26,10 @@ inoremap wq <ESC>:wq<CR>
 "noremap <leader>yy "*Y
 "noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 inoremap <c-g> <esc>gg=Ggg
+nnoremap <c-g> <esc>gg=Ggg
 " For when you come up with a great keymapping in the heat of coding
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>q :nohlsearch<CR>
 nnoremap <leader>w :setlocal wrap!<CR>:setlocal wrap?<CR>
 nnoremap <F3> :NumbersToggle<CR>
@@ -51,11 +52,12 @@ Plugin 'SirVer/ultisnips'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
-Bundle 'gertjanreynaert/cobalt2-vim-theme'
+Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 
 syntax on
 filetype plugin indent on
+colorscheme vividchalk
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -103,9 +105,9 @@ au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 let g:numbers_exclude = ['nerdtree']
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 "let g:syntastic_error_symbol = "✗"
 "let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_population_loc_list=1
