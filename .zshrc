@@ -7,7 +7,7 @@ export LC_ALL=en_US.UTF-8
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Themes I like: sorin, pygmalion (needs to be readjusted), nanotech
-ZSH_THEME="nanotech"
+ZSH_THEME="minimal-path-git"
 
 # vi bindings
 bindkey -v

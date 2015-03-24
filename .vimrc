@@ -6,16 +6,24 @@ set nowrap
 set number
 set backspace=indent,eol,start
 set rtp+=~/.vim/bundle/Vundle.vim
-set history=50
+set history=100
 set incsearch
 set ignorecase
 set smartcase
 set hlsearch
 set background=dark
+set ruler
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+set autochdir
+set showcmd
+set lazyredraw
+
 "highlight ColorColumn ctermbg=7
 " Different scheme for different time
 "if (strftime("%H") >= "21" || strftime("%H") <= "06")
-    "make something your colorscheme
+"make something your colorscheme
 "endif
 
 inoremap jk <ESC>
@@ -37,6 +45,42 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
 nnoremap j gj
 nnoremap k gk
+inoremap '' ''<Left>
+inoremap "" ""<Left>
+inoremap () ()<Left>
+inoremap <> <><Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" Restore cursor position to where it was before
+augroup JumpCursorOnEdit
+    au!
+    autocmd BufReadPost *
+                \ if expand("<afile>:p:h") !=? $TEMP |
+                \   if line("'\"") > 1 && line("'\"") <= line("$") |
+                \     let JumpCursorOnEdit_foo = line("'\"") |
+                \     let b:doopenfold = 1 |
+                \     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
+                \        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
+                \        let b:doopenfold = 2 |
+                \     endif |
+                \     exe JumpCursorOnEdit_foo |
+                \   endif |
+                \ endif
+    " Need to postpone using "zv" until after reading the modelines.
+    autocmd BufWinEnter *
+                \ if exists("b:doopenfold") |
+                \   exe "normal zv" |
+                \   if(b:doopenfold > 1) |
+                \       exe  "+".1 |
+                \   endif |
+                \   unlet b:doopenfold |
+                \ endif
+augroup END
 
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
@@ -49,7 +93,6 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'myusuf3/numbers.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
@@ -57,7 +100,8 @@ call vundle#end()
 
 syntax on
 filetype plugin indent on
-colorscheme vividchalk
+set autoindent
+colorscheme inkpot
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -108,8 +152,6 @@ let g:numbers_exclude = ['nerdtree']
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
-"let g:syntastic_error_symbol = "✗"
-"let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_always_population_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
