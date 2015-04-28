@@ -11,6 +11,7 @@ ZSH_THEME="minimal-path-git"
 
 # vi bindings
 bindkey -v
+bindkey -M vicmd v edit-command-line
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
