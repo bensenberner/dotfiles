@@ -42,7 +42,11 @@ alias c="clear"
 alias agi='sudo apt-get install'
 alias agp='sudo apt-get purge'
 alias agu='sudo apt-get update'
-alias dream="~/.dream.sh"
+alias dream="sh ~/.dream.sh"
 alias ducks='du -cks * | sort -rn | head'
+
+# bagels
+alias b='sh ~/bagel.io/bagel.sh theusual'
+alias order='sh ~/bagel.io/bagel.sh'
 
 # Appended aliases

@@ -1,3 +1,6 @@
+"TODO: create a function that, upon pressing ctrl-g, will save your position
+"in the file, reindent the file, and then reposition your cursor back where
+"you left it.
 let mapleader=';'
 set nocompatible
 set mouse=a
