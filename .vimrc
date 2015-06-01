@@ -23,12 +23,6 @@ set autochdir
 set showcmd
 set lazyredraw
 
-"highlight ColorColumn ctermbg=7
-" Different scheme for different time
-"if (strftime("%H") >= "21" || strftime("%H") <= "06")
-"make something your colorscheme
-"endif
-
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
 inoremap wq <ESC>:wq<CR>
@@ -86,10 +80,9 @@ Plugin 'scrooloose/nerdtree'
 " Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
 call vundle#end()
