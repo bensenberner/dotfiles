@@ -16,8 +16,8 @@ set smartcase
 set hlsearch
 set background=dark
 set ruler
-set backup
-set backupdir=~/.vim/backup
+"set backup
+"set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set autochdir
 set showcmd
