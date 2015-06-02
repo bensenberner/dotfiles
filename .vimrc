@@ -22,6 +22,7 @@ set directory=~/.vim/tmp
 set autochdir
 set showcmd
 set lazyredraw
+let python_highlight_all = 1
 
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
@@ -32,6 +33,7 @@ inoremap wq <ESC>:wq<CR>
 "noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 inoremap <c-g> <esc>gg=Ggg
 nnoremap <c-g> <esc>gg=Ggg
+
 " For when you come up with a great keymapping in the heat of coding
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -76,8 +78,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-" Need to figure out how to make it less intrusive first
-" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
@@ -85,12 +85,17 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'klen/python-mode'
 call vundle#end()
 
 syntax on
 filetype plugin indent on
 set autoindent
 colorscheme inkpot
+
+" python-mode
+let g:pymode_options_colorcolumn = 1
+let g:pymode_rope = 0
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -136,17 +141,6 @@ au FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 let g:numbers_exclude = ['nerdtree']
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-let g:syntastic_always_population_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_c_auto_refresh_includes=1
 
 " UltiSnips settings so that there's no competition with YCM
 let g:UltiSnipsExpandTrigger="<C-k>"

@@ -3,46 +3,16 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vimrc='vim ~/.vimrc'
 alias sshfix='eval "$(ssh-agent -s)" && ssh-add'
-alias vagrantrestart='sudo "/Library/Application Support/VirtualBox/LaunchDaemons/VirtualBoxStartup.sh" restart'
-alias klaff='cd ~/klaff/flashcards'
-
-# courses shortcuts
-alias crs='cd ~/Documents/Spec/courses'
-alias print='cd ~/Documents/Spec/printatcu-new'
-alias shaft='cd ~/Documents/Spec/the-shaft'
-alias spec='cd ~/Documents/Spec'
-alias wapo='cd /Users/benjaminlerner/Documents/Spec/Spectator-PageBuilder-Features'
-alias runelasticsearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
-alias runpostgres="postgres -D /usr/local/var/postgres"
-alias runredis="redis-server"
-alias runrails="crs && zeus server"
-alias runzeus="crs && zeus start"
-
-# Linux only
-# alias startpostgres='sudo /etc/init.d/postgresql start'
-# alias startelastic='sudo service elasticsearch start'
-# alias stoppostgres='sudo /etc/init.d/postgresql stop'
-# alias stopelastic='sudo service elasticsearch stop'
-# alias startcourses='startpostgres && startelastic && startredis'
-# alias stopcourses='stoppostgres && stopelastic'
-
-# Columbia aliases
-alias clic='ssh bll2121@clic.cs.columbia.edu'
-alias skl='cd ~/Documents/Columbia'
-alias discrete='skl && cd COMS3203'
-alias webdev='skl && cd COMS3101_part_2/flash-cards'
-# alias flashcard='cd /Users/benjaminlerner/Documents/Columbia/COMS3101_part_2/flash-cards'
-alias hw='vim ~/Documents/Columbia/hw.txt'
-alias localhost='cd /Library/WebServer/Documents'
-alias fratistics='open /Users/benjaminlerner/Documents/Columbia/SIEO4150/StatisticsTextbook.pdf'
-
-# /g/ood aliases
 alias c="clear"
+
+# bitly
+alias blvm="ssh root@bitly.org"
+alias bitly="cd /bitly/src/github/bitly"
+
 # Linux only
 alias agi='sudo apt-get install'
 alias agp='sudo apt-get purge'
 alias agu='sudo apt-get update'
-alias dream="sh ~/.dream.sh"
 alias ducks='du -cks * | sort -rn | head'
 
 # bagels
@@ -50,3 +20,4 @@ alias b='sh ~/bagel.io/bagel.sh theusual'
 alias order='sh ~/bagel.io/bagel.sh'
 
 # Appended aliases
+
