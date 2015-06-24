@@ -7,7 +7,7 @@ export LC_ALL=en_US.UTF-8
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Themes I like: sorin, pygmalion (needs to be readjusted), nanotech
-ZSH_THEME="minimal-path-git"
+ZSH_THEME="paper"
 
 # vi bindings
 bindkey -v
@@ -96,7 +96,8 @@ setopt AUTO_CD
 # Evan's sick code
 
 # autojump
-[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+[[ -s /Users/ben/.autojump/etc/profile.d/autojump.sh ]] && source /Users/ben/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
 
 # code to toggle back from a jump-to-command-line-using-ctrl-z-in-vim
 # with a ctrl-z
@@ -111,3 +112,9 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# I don't feel like being corrected anymore
+unsetopt correct_all
+
+# git stuff for bitly
+git config --global alias.all "for-each-ref --format='%(refname:short) <- %(upstream:short)' refs/heads"

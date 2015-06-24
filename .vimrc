@@ -83,9 +83,11 @@ Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
 "Plugin 'Valloric/YouCompleteMe'
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'klen/python-mode'
+Plugin 'fatih/vim-go'
+"Plugin 'klen/python-mode'
 call vundle#end()
 
 syntax on
@@ -94,7 +96,7 @@ set autoindent
 colorscheme inkpot
 
 " python-mode
-let g:pymode_options_colorcolumn = 1
+let g:pymode_options_colorcolumn = 0
 let g:pymode_rope = 0
 
 " NERDtree

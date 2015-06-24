@@ -6,7 +6,7 @@ alias sshfix='eval "$(ssh-agent -s)" && ssh-add'
 alias c="clear"
 
 # bitly
-alias blvm="ssh root@bitly.org"
+alias vm="ssh root@bitly.org"
 alias bitly="cd /bitly/src/github/bitly"
 
 # Linux only
@@ -20,4 +20,5 @@ alias b='sh ~/bagel.io/bagel.sh theusual'
 alias order='sh ~/bagel.io/bagel.sh'
 
 # Appended aliases
-
+alias notes='vim ~/notes.txt'
+alias esquery='cd /bitly/src/github/bitly/eshistory/lib/'
