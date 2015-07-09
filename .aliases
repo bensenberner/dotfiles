@@ -6,7 +6,7 @@ alias sshfix='eval "$(ssh-agent -s)" && ssh-add'
 alias c="clear"
 
 # bitly
-alias vm="ssh root@bitly.org"
+alias vm="ssh root@bitly.org -t 'cd /bitly/src/github/bitly; bash -l'"
 alias bitly="cd /bitly/src/github/bitly"
 
 # Linux only

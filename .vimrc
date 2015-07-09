@@ -83,9 +83,10 @@ Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'hynek/vim-python-pep8-indent'
+"Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'fatih/vim-go'
 "Plugin 'klen/python-mode'
 call vundle#end()
@@ -93,7 +94,6 @@ call vundle#end()
 syntax on
 filetype plugin indent on
 set autoindent
-colorscheme inkpot
 
 " python-mode
 let g:pymode_options_colorcolumn = 0
@@ -130,6 +130,8 @@ autocmd WinEnter * call NERDTreeQuit()
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
+colorscheme PaperColor-Dark
+"colorscheme inkpot
 
 " Tab Settings
 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4
