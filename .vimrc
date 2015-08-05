@@ -16,8 +16,8 @@ set smartcase
 set hlsearch
 set background=dark
 set ruler
-set backup
-set backupdir=~/.vim/backup
+"set backup
+"set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set autochdir
 set showcmd
@@ -84,6 +84,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 " Need to figure out how to make it less intrusive first
 " Plugin 'scrooloose/syntastic'
+Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails'
