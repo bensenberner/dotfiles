@@ -84,6 +84,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'NLKNguyen/papercolor-theme'
@@ -130,8 +131,8 @@ autocmd WinEnter * call NERDTreeQuit()
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
-colorscheme PaperColor-Dark
-"colorscheme inkpot
+"colorscheme PaperColor-Dark
+colorscheme inkpot
 
 " Tab Settings
 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4
