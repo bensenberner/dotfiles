@@ -78,13 +78,14 @@ augroup JumpCursorOnEdit
                 \ endif
 augroup END
 
+filetype off " filetype needs to be off before Vundle
+
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 " Need to figure out how to make it less intrusive first
 " Plugin 'scrooloose/syntastic'
-Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails'
@@ -99,6 +100,7 @@ syntax on
 filetype plugin indent on
 set autoindent
 colorscheme inkpot
+set encoding=utf8
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
