@@ -91,7 +91,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-rails'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 Plugin 'flazz/vim-colorschemes'
 call vundle#end()
