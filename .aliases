@@ -1,5 +1,5 @@
 # COMS 3101
-alias python='python3.4'
+alias python='python3.5'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -25,6 +25,7 @@ alias runzeus="crs && zeus start"
 # alias stopcourses='stoppostgres && stopelastic'
 
 # Columbia aliases
+alias bk='cd /Users/benjaminlerner/benefit-kitchen'
 alias clic='ssh bll2121@clic.cs.columbia.edu'
 alias skl='cd ~/Documents/Columbia'
 alias hw='vim ~/Documents/Columbia/hw.txt'

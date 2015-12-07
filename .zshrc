@@ -2,6 +2,9 @@
 export ZSH=$HOME/.oh-my-zsh
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+export PYTHONSTARTUP=$HOME/.pyrc
+#export PYTHONPATH=$PYTHONPATH:
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -17,6 +20,14 @@ bindkey -M vicmd v edit-command-line
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
+
+# Virtualenv/VirtualenvWrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.4
+source /Library/Frameworks/Python.framework/Versions/3.4/bin/virtualenvwrapper.sh
+
+export DYLD_FALLBACK_LIBRARY_PATH=/Users/benjaminlerner/opencv/build/lib:$DYLD_FALLBACK_LIBRARY_PATH
+export PYTHONPATH=$PYTHONPATH:/Users/benjaminlerner/opencv/build/lib/python2.7/site-packages
+
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
@@ -56,7 +67,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/benjaminlerner/anaconda/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@railstutorial_rails_4_0_1/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@global/bin:/Users/benjaminlerner/.rvm/rubies/ruby-2.1.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/usr/texbin"
+export PATH="/Users/benjaminlerner/bin:/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/benjaminlerner/anaconda/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@railstutorial_rails_4_0_1/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@global/bin:/Users/benjaminlerner/.rvm/rubies/ruby-2.1.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/usr/texbin"
+
+# this one is for something
+#export PATH="/usr/local/bin:/opt/local/bin:/usr/local/heroku/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/benjaminlerner/anaconda/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@railstutorial_rails_4_0_1/bin:/Users/benjaminlerner/.rvm/gems/ruby-2.1.1@global/bin:/Users/benjaminlerner/.rvm/rubies/ruby-2.1.1/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/Users/benjaminlerner/.rvm/bin:/usr/texbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

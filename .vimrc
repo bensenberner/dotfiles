@@ -31,7 +31,7 @@ set lazyredraw
 
 inoremap jk <ESC>
 inoremap <c-d> <ESC>0d$i
-inoremap wq <ESC>:wq<CR>
+"inoremap wq <ESC>:wq<CR>
 "Check what these do
 "noremap <leader>y "*y
 "noremap <leader>yy "*Y
@@ -51,6 +51,12 @@ nnoremap k gk
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" Set auto textwidth
+au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
+au Bufread,BufNewFile *.markdown set textwidth=79
+au Bufread,BufNewFile *.txt set textwidth=79
+
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
