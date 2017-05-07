@@ -2,26 +2,31 @@
 "in the file, reindent the file, and then reposition your cursor back where
 "you left it.
 let mapleader=';'
-set nocompatible
-set mouse=a
+"let python_highlight_all=1
+set autochdir
+set background=dark
+set backspace=indent,eol,start
+set directory=~/.vim/tmp
+set foldlevel=99
+set foldmethod=indent
+set history=100
+set hlsearch
+set ignorecase
+set incsearch
 set laststatus=2
+set lazyredraw
+set mouse=a
+set nocompatible
 set nowrap
 set number
-set backspace=indent,eol,start
+set relativenumber
 set rtp+=~/.vim/bundle/Vundle.vim
-set history=100
-set incsearch
-set ignorecase
-set smartcase
-set hlsearch
-set background=dark
 set ruler
-"set backup
-"set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
-set autochdir
 set showcmd
-set lazyredraw
+set smartcase
+
+" enable folding with spacebar
+"nnoremap <space> za
 
 "highlight ColorColumn ctermbg=7
 " Different scheme for different time
@@ -57,6 +62,11 @@ au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
 au Bufread,BufNewFile *.markdown set textwidth=79
 au Bufread,BufNewFile *.txt set textwidth=79
 
+" automatically source vimrc upon any change
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost ~/.vimrc source %
+augroup END
 
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
@@ -88,24 +98,28 @@ filetype off " filetype needs to be off before Vundle
 
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-" Need to figure out how to make it less intrusive first
-" Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'SirVer/ultisnips'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'dracula/vim'
+Plugin 'easymotion/vim-easymotion'
 call vundle#end()
+
+call glaive#Install()
 
 syntax on
 filetype plugin indent on
 set autoindent
-colorscheme inkpot
-set encoding=utf8
+colorscheme dracula
+
+set encoding=utf-8
 
 " NERDtree
 :nmap <leader>e :NERDTreeToggle<CR>
@@ -149,8 +163,12 @@ au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+" TODO: make this multiple lines
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 let g:numbers_exclude = ['nerdtree']
+
+"let g:SimpylFold_docstring_preview=1
 
 " Syntastic
 "set statusline+=%#warningmsg#

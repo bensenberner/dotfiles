@@ -10,7 +10,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://raw.githubusercontent.com/ciaranm/inkpot/master/colors/inkpot.vim
 # Put it into the colors folder so that you don't get any vimpilation errors
 mv inkpot.vim ~/.vim/colors
-# Copy the .vimrc into your home folder
-cp .vimrc ~/
 # Install
 vim +PluginInstall +qall
+ln -s .aliases ~/.aliases
+ln -s .vimrc ~/.vimrc
+ln -s .zshrc ~/.zshrc
+
