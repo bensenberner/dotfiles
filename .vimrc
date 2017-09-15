@@ -1,8 +1,12 @@
 "TODO: create a function that, upon pressing ctrl-g, will save your position
 "in the file, reindent the file, and then reposition your cursor back where
 "you left it.
-let mapleader=';'
+" TODO: find out what this does
 "let python_highlight_all=1
+" TODO: find out how registers work (i.e. the " stuff)
+" TODO: memorize these! https://github.com/davidhalter/jedi-vim#features
+
+let mapleader=';'
 set autochdir
 set background=dark
 set backspace=indent,eol,start
@@ -10,6 +14,7 @@ set directory=~/.vim/tmp
 set foldlevel=99
 set foldmethod=indent
 set history=100
+set encoding=utf-8
 set hlsearch
 set ignorecase
 set incsearch
@@ -24,26 +29,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set ruler
 set showcmd
 set smartcase
+set complete=.,b,u,]
+set wildmode=longest,list:longest
 
-" enable folding with spacebar
-"nnoremap <space> za
+" TODO: remap navigation
+"nnoremap <silent> <c-f>h :wincmd h<CR>
+"nnoremap <silent> <c-f>j :wincmd j<CR>
+"nnoremap <silent> <c-f>k :wincmd k<CR>
+"nnoremap <silent> <c-f>l :wincmd l<CR>
 
-"highlight ColorColumn ctermbg=7
-" Different scheme for different time
-"if (strftime("%H") >= "21" || strftime("%H") <= "06")
-"make something your colorscheme
-"endif
-
-inoremap jk <ESC>
-inoremap <c-d> <ESC>0d$i
-"inoremap wq <ESC>:wq<CR>
-"Check what these do
-"noremap <leader>y "*y
-"noremap <leader>yy "*Y
-"noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
-inoremap <c-g> <esc>gg=Ggg
-nnoremap <c-g> <esc>gg=Ggg
-" For when you come up with a great keymapping in the heat of coding
+nnoremap <space> za " enable folding with spacebar
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>q :nohlsearch<CR>
@@ -53,23 +48,20 @@ nnoremap <leader>l :bnext<CR>
 nnoremap <leader>h :bprev<CR>
 nnoremap j gj
 nnoremap k gk
-
+inoremap jk <ESC>
+nnoremap <c-g> <esc>gg=Ggg
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
 " Set auto textwidth
 au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
 au Bufread,BufNewFile *.markdown set textwidth=79
-au Bufread,BufNewFile *.txt set textwidth=79
-
-" automatically source vimrc upon any change
-augroup autosourcing
+au Bufread,BufNewFile *.txt set textwidth=97
+augroup autosourcing " automatically source vimrc upon any change
     autocmd!
     autocmd BufWritePost ~/.vimrc source %
 augroup END
 
-" Restore cursor position to where it was before
-augroup JumpCursorOnEdit
+augroup JumpCursorOnEdit " Restore cursor position to where it was before
     au!
     autocmd BufReadPost *
                 \ if expand("<afile>:p:h") !=? $TEMP |
@@ -94,24 +86,35 @@ augroup JumpCursorOnEdit
                 \ endif
 augroup END
 
-filetype off " filetype needs to be off before Vundle
+" 256 colors
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+    set t_Co=256
+endif
 
+filetype off " filetype needs to be off before Vundle
+" TODO: pick out which snippet is best
+"Plugin 'KeyboardFire/vim-minisnip'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"TODO: figure out why this tabs you all the way to the bottom when you exit vim
+"Plugin 'davidhalter/jedi-vim'
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'bling/vim-airline'
-Plugin 'mattn/emmet-vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'dracula/vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
+Plugin 'google/vim-maktaba'
+Plugin 'ervandew/supertab'
+Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'dNitro/vim-pug-complete'
 call vundle#end()
-
 call glaive#Install()
 
 syntax on
@@ -119,9 +122,7 @@ filetype plugin indent on
 set autoindent
 colorscheme dracula
 
-set encoding=utf-8
-
-" NERDtree
+" Plugin Settings
 :nmap <leader>e :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 " Enable UTF-8 to properly display directory arrows. Otherwise, uncomment this.
@@ -148,10 +149,6 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
-" 256 colors
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-    set t_Co=256
-endif
 
 " Tab Settings
 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -163,29 +160,15 @@ au FileType ruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-" TODO: make this multiple lines
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
 let g:numbers_exclude = ['nerdtree']
-
-"let g:SimpylFold_docstring_preview=1
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-let g:syntastic_always_population_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_c_auto_refresh_includes=1
-
+let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
+"
 " UltiSnips settings so that there's no competition with YCM
 let g:UltiSnipsExpandTrigger="<C-k>"
 let g:UltiSnipsJumpForwardTrigger="<C-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
 " airline
 let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled = 1

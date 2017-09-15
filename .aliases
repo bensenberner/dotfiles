@@ -1,4 +1,6 @@
 alias python='python3.6'
+# superspeed
+alias v='vim'
 alias pip='pip3'
 alias ll='ls -alF'
 alias la='ls -A'
@@ -15,6 +17,9 @@ alias localhost='cd /Library/WebServer/Documents'
 alias hr='cd ~/hardread'
 alias c="clear"
 alias dream="sh ~/.dream.sh"
+alias journal="sh ~/journal.sh"
 unalias rm
 alias rm='trash'
+alias clrs='cd ~/ctci/clrs'
+alias h='cd ~/habitica && nvm use'
 # Appended aliases
