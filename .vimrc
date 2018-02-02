@@ -50,12 +50,14 @@ nnoremap j gj
 nnoremap k gk
 inoremap jk <ESC>
 nnoremap <c-g> <esc>gg=Ggg
+nnoremap n nzz
+nnoremap N Nzz
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " Set auto textwidth
 au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
 au Bufread,BufNewFile *.markdown set textwidth=79
-au Bufread,BufNewFile *.txt set textwidth=97
+au Bufread,BufNewFile *.txt Goyo
 augroup autosourcing " automatically source vimrc upon any change
     autocmd!
     autocmd BufWritePost ~/.vimrc source %
@@ -100,20 +102,22 @@ filetype off " filetype needs to be off before Vundle
 "Plugin 'davidhalter/jedi-vim'
 call vundle#begin()
 Plugin 'bling/vim-airline'
+Plugin 'dNitro/vim-pug-complete'
+Plugin 'digitaltoad/vim-pug'
 Plugin 'dracula/vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'ervandew/supertab'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 Plugin 'google/vim-maktaba'
-Plugin 'ervandew/supertab'
+Plugin 'junegunn/goyo.vim'
+"Plugin 'junegunn/limelight.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'dNitro/vim-pug-complete'
 call vundle#end()
 call glaive#Install()
 
@@ -149,6 +153,26 @@ function! NERDTreeQuit()
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
 
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " Tab Settings
 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4
@@ -161,6 +185,7 @@ au FileType eruby setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au FileType javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 au Filetype python setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+" au Filetype text setlocal spell spelllang=en_us " I guess this is useful?
 
 let g:numbers_exclude = ['nerdtree']
 let g:ycm_python_binary_path = '/usr/local/bin/python3.6'
