@@ -58,6 +58,7 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 au Bufread,BufNewFile *.md set filetype=markdown textwidth=79
 au Bufread,BufNewFile *.markdown set textwidth=79
 au Bufread,BufNewFile *.txt Goyo
+au Bufread,BufNewFile *.txt set wrap
 augroup autosourcing " automatically source vimrc upon any change
     autocmd!
     autocmd BufWritePost ~/.vimrc source %

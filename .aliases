@@ -1,4 +1,4 @@
-alias python='python3.6'
+alias python='python3.7'
 # superspeed
 alias v='vim'
 alias pip='pip3'
